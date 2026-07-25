@@ -1,15 +1,24 @@
-function CharacterCard({ id, name, title, vision }) {
+function CharacterCard({ character, setScore, clicked, setClicked }) {
+  function selectChar() {
+    if (!clicked.has(character.id)) {
+      setClicked(clicked.add(character.id));
+      setScore((prev) => prev + 1);
+    } else {
+      setClicked(new Set());
+      setScore(0);
+    }
+  }
   return (
-    <figure className="character-card">
+    <figure className="character-card" onClick={selectChar}>
       <img
-        src={`https://genshin.jmp.blue/characters/${id}/card`}
-        alt={name + "photo"}
+        src={`https://genshin.jmp.blue/characters/${character.id}/card`}
+        alt={name + " " + "photo"}
         width={300}
         height={350}
       />
       <figcaption>
-        <span className="name">{name}</span>
-        <span className="title">{title}</span>
+        <span className="name">{character.name}</span>
+        <span className="title">{character.title}</span>
       </figcaption>
     </figure>
   );

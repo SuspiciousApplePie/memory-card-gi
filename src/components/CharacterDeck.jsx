@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
-import { getCharacters } from "./api/characters";
-import { CharacterCard } from "./CharacterCard";
+import { getCharacters } from "./api/characters.js";
+import { CharacterCard } from "./CharacterCard.jsx";
+import { Score } from "./Score.jsx";
 function CharacterDeck() {
   const [charDeck, setCharDeck] = useState([]);
+  const [score, setScore] = useState(0);
+  const [clicked, setClicked] = useState(new Set());
 
   useEffect(() => {
     getCharacters(["traveler-anemo", "amber", "kaeya", "lisa"]).then((res) => {
@@ -14,14 +17,20 @@ function CharacterDeck() {
     return (
       <CharacterCard
         key={char.id}
-        id={char.id}
-        name={char.name}
-        title={char.title}
+        character={char}
+        setScore={setScore}
+        clicked={clicked}
+        setClicked={setClicked}
       />
     );
   });
 
-  return <div className="character-deck">{characters}</div>;
+  return (
+    <div className="character-deck">
+      <Score score={score} />
+      {characters}
+    </div>
+  );
 }
 
 export { CharacterDeck };

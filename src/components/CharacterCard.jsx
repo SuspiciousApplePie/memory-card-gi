@@ -2,7 +2,7 @@ function CharacterCard({ id, name, title, vision }) {
   return (
     <figure className="character-card">
       <img
-        src={`https://genshin.jmp.blue/characters/${name.toLowerCase()}/card`}
+        src={`https://genshin.jmp.blue/characters/${id}/card`}
         alt={name + "photo"}
         width={300}
         height={350}

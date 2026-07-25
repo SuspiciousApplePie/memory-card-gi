@@ -2,7 +2,6 @@ async function getCharacters(charNames) {
   try {
     const characterData = [];
     for (const charName of charNames) {
-      console.log(charName);
       const res = await fetch(
         `https://genshin.jmp.blue/characters/${charName}/`,
       );

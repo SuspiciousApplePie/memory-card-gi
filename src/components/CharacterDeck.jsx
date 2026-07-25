@@ -5,7 +5,7 @@ function CharacterDeck() {
   const [charDeck, setCharDeck] = useState([]);
 
   useEffect(() => {
-    getCharacters(["amber", "kaeya", "lisa", "barbara"]).then((res) => {
+    getCharacters(["traveler-anemo", "amber", "kaeya", "lisa"]).then((res) => {
       setCharDeck([...res]);
     });
   }, []);

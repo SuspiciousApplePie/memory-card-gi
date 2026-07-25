@@ -21,6 +21,7 @@ function CharacterDeck() {
         setScore={setScore}
         clicked={clicked}
         setClicked={setClicked}
+        setCharDeck={setCharDeck}
       />
     );
   });

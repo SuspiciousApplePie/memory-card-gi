@@ -20,7 +20,7 @@ function CharacterCard({
   return (
     <figure className="character-card" onClick={selectChar}>
       <img
-        src={`https://genshin.jmp.blue/characters/${character.id}/card`}
+        src={`https://genshin.jmp.blue/characters/${character.id.toLowerCase()}/card`}
         alt={name + " " + "photo"}
         width={300}
         height={350}

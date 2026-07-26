@@ -1,3 +1,5 @@
+import { shuffle } from "../utils/shuffle";
+
 async function getCharacters(charNames) {
   try {
     const characterData = [];
@@ -18,4 +20,24 @@ async function getCharacters(charNames) {
   }
 }
 
-export { getCharacters };
+async function populateCharacterNames() {
+  const res = await fetch("https://genshin.jmp.blue/characters/");
+  if (!res.ok) {
+    throw new Error("Failed to fetch character names.");
+  }
+  const charNames = await res.json();
+
+  let hasTraveler = false;
+  const filteredCharNames = charNames.filter((charName) => {
+    if (!charName.startsWith("traveler-")) return true;
+    if (!hasTraveler && charName.startsWith("traveler-")) {
+      hasTraveler = true;
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return shuffle(filteredCharNames);
+}
+
+export { getCharacters, populateCharacterNames };

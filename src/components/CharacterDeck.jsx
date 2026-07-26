@@ -1,17 +1,24 @@
 import { useState, useEffect } from "react";
-import { getCharacters } from "./api/characters.js";
+import { getCharacters, populateCharacterNames } from "./api/characters.js";
 import { CharacterCard } from "./CharacterCard.jsx";
 import { Score } from "./Score.jsx";
 function CharacterDeck() {
+  const [charNames, setCharNames] = useState([]);
   const [charDeck, setCharDeck] = useState([]);
   const [score, setScore] = useState(0);
   const [clicked, setClicked] = useState(new Set());
 
   useEffect(() => {
-    getCharacters(["traveler-anemo", "amber", "kaeya", "lisa"]).then((res) => {
-      setCharDeck([...res]);
+    populateCharacterNames().then((res) => {
+      setCharNames([...res].slice(0, 8));
     });
   }, []);
+
+  useEffect(() => {
+    getCharacters(charNames).then((res) => {
+      setCharDeck([...res]);
+    });
+  }, [charNames]);
 
   const characters = charDeck.map((char) => {
     return (

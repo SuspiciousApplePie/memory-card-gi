@@ -2,10 +2,12 @@ import { shuffle } from "./utils/shuffle.js";
 
 function CharacterCard({
   character,
+  score,
   setScore,
   clicked,
   setClicked,
   setCharDeck,
+  setHighScore,
 }) {
   function selectChar() {
     if (!clicked.has(character.id)) {
@@ -13,6 +15,10 @@ function CharacterCard({
       setScore((prev) => prev + 1);
     } else {
       setClicked(new Set());
+      setHighScore((prev) => {
+        if (score > prev) return score;
+        else return prev;
+      });
       setScore(0);
     }
     setCharDeck((charDeck) => [...shuffle([...charDeck])]);

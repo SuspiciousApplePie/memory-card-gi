@@ -7,6 +7,7 @@ function CharacterDeck() {
   const [charDeck, setCharDeck] = useState([]);
   const [score, setScore] = useState(0);
   const [clicked, setClicked] = useState(new Set());
+  const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
     populateCharacterNames().then((res) => {
@@ -25,17 +26,19 @@ function CharacterDeck() {
       <CharacterCard
         key={char.id}
         character={char}
+        score={score}
         setScore={setScore}
         clicked={clicked}
         setClicked={setClicked}
         setCharDeck={setCharDeck}
+        setHighScore={setHighScore}
       />
     );
   });
 
   return (
     <div className="character-deck">
-      <Score score={score} />
+      <Score score={score} highScore={highScore} />
       {characters}
     </div>
   );

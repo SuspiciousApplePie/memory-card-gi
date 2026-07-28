@@ -2,19 +2,31 @@ import { shuffle } from "../utils/shuffle";
 
 async function getCharacters(charNames) {
   try {
-    const characterData = [];
-    for (const charName of charNames) {
-      const res = await fetch(
-        `https://genshin.jmp.blue/characters/${charName}/`,
-      );
-      if (!res.ok) {
-        throw new Error("Failed to fetch character data");
-      }
-      const characterDetail = await res.json();
-      const { id, name, title, vision } = characterDetail;
-      characterData.push({ id, name, title, vision });
-    }
-    return characterData;
+    const responses = await Promise.all(
+      charNames.map((charName) =>
+        fetch(`https://genshin.jmp.blue/characters/${charName}/`),
+      ),
+    );
+
+    responses.forEach((res) => {
+      if (!res.ok) throw new Error("Failed to fetch character data");
+    });
+
+    const characterData = await Promise.all(
+      responses.map((res) => {
+        return res.json();
+      }),
+    );
+
+    const shuffled = shuffle(
+      characterData.map(({ id, name, title, vision }) => ({
+        id,
+        name,
+        title,
+        vision,
+      })),
+    );
+    return shuffled;
   } catch (error) {
     return error;
   }

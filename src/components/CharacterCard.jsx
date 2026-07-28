@@ -30,6 +30,7 @@ function CharacterCard({
         alt={name + " " + "photo"}
         width={300}
         height={350}
+        fetchPriority="high"
       />
       <figcaption>
         <span className="name">{character.name}</span>

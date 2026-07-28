@@ -11,13 +11,13 @@ function CharacterDeck() {
 
   useEffect(() => {
     populateCharacterNames().then((res) => {
-      setCharNames([...res].slice(0, 8));
+      setCharNames([...res]);
     });
   }, []);
 
   useEffect(() => {
     getCharacters(charNames).then((res) => {
-      setCharDeck([...res]);
+      setCharDeck([...res].slice(0, 8));
     });
   }, [charNames]);
 

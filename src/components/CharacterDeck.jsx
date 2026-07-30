@@ -19,7 +19,7 @@ function CharacterDeck({ aboutPageStatus }) {
 
   useEffect(() => {
     getCharacters(charNames).then((res) => {
-      setCharDeck([...res].slice(0, 8));
+      setCharDeck([...res].slice(0, 12));
     });
   }, [charNames]);
 

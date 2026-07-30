@@ -1,7 +1,7 @@
-function Footer() {
+function Footer({ setAboutPageStatus }) {
   return (
     <footer>
-      <button>About</button>
+      <button onClick={() => setAboutPageStatus(true)}>About</button>
     </footer>
   );
 }

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getCharacters, populateCharacterNames } from "./api/characters.js";
 import { CharacterCard } from "./CharacterCard.jsx";
 import { Score } from "./Score.jsx";
-function CharacterDeck() {
+function CharacterDeck({ aboutPageStatus }) {
   const [charNames, setCharNames] = useState([]);
   const [charDeck, setCharDeck] = useState([]);
   const [score, setScore] = useState(0);
@@ -37,7 +37,12 @@ function CharacterDeck() {
   });
 
   return (
-    <div className="character-deck">
+    <div
+      className={
+        (aboutPageStatus && "character-deck hide") ||
+        (!aboutPageStatus && "character-deck")
+      }
+    >
       <Score score={score} highScore={highScore} />
       {characters}
     </div>

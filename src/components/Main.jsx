@@ -1,9 +1,18 @@
 import { CharacterDeck } from "./CharacterDeck.jsx";
+import { About } from "./About.jsx";
 
-function Main() {
+function Main({ aboutPageStatus, setAboutPageStatus }) {
   return (
-    <main>
-      <CharacterDeck />
+    <main
+      className={
+        (aboutPageStatus && "about") || (!aboutPageStatus && undefined)
+      }
+    >
+      <About
+        aboutPageStatus={aboutPageStatus}
+        setAboutPageStatus={setAboutPageStatus}
+      />
+      <CharacterDeck aboutPageStatus={aboutPageStatus} />
     </main>
   );
 }

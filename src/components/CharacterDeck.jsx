@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { getCharacters, populateCharacterNames } from "./api/characters.js";
 import { CharacterCard } from "./CharacterCard.jsx";
 import { Score } from "./Score.jsx";
+import "./styles/CharacterDeck.css";
+
 function CharacterDeck({ aboutPageStatus }) {
   const [charNames, setCharNames] = useState([]);
   const [charDeck, setCharDeck] = useState([]);
@@ -44,7 +46,7 @@ function CharacterDeck({ aboutPageStatus }) {
       }
     >
       <Score score={score} highScore={highScore} />
-      {characters}
+      <div className="cards">{characters}</div>
     </div>
   );
 }

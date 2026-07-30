@@ -28,8 +28,8 @@ function CharacterCard({
       <img
         src={`https://genshin.jmp.blue/characters/${character.id.toLowerCase()}/card`}
         alt={name + " " + "photo"}
-        width={300}
-        height={350}
+        width={250}
+        height={300}
         fetchPriority="high"
       />
       <figcaption>

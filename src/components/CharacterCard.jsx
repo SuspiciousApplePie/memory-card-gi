@@ -1,4 +1,5 @@
 import { shuffle } from "./utils/shuffle.js";
+import "./styles/CharacterCard.css";
 
 function CharacterCard({
   character,

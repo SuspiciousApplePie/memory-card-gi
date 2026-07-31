@@ -1,0 +1,14 @@
+.character-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.character-card img {
+  align-self: center;
+}
+
+.character-card figcaption span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

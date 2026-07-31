@@ -12,7 +12,7 @@ function CharacterCard({
 }) {
   function selectChar() {
     if (!clicked.has(character.id)) {
-      setClicked(clicked.add(character.id));
+      setClicked((prev) => new Set(prev).add(character.id));
       setScore((prev) => prev + 1);
     } else {
       setClicked(new Set());

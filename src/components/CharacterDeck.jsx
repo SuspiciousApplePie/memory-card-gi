@@ -19,12 +19,20 @@ function CharacterDeck({ aboutPageStatus }) {
   }, []);
 
   useEffect(() => {
-    if (charDeck.length === 0) {
-      getCharacters(charNames).then((res) => {
+    if (charNames.length === 0) return;
+    let ignore = false;
+
+    getCharacters(charNames).then((res) => {
+      if (ignore) return;
+      if (charDeck.length === 0) {
         const shuffled = shuffle([...res]);
         setCharDeck([...shuffled].slice(0, 10));
-      });
-    }
+      }
+    });
+
+    return () => {
+      ignore = true;
+    };
   }, [charNames, charDeck]);
 
   const characters = charDeck.map((char) => {

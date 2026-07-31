@@ -32,6 +32,7 @@ function CharacterCard({
         width={250}
         height={300}
         fetchPriority="high"
+        draggable="false"
       />
       <figcaption>
         <span className="name">{character.name}</span>

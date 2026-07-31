@@ -1,9 +1,7 @@
-import { shuffle } from "../utils/shuffle.js";
-
 async function getCharacters(charNames) {
   if (sessionStorage.getItem("charData")) {
     if (JSON.parse(sessionStorage.getItem("charData")).length > 0)
-      return shuffle(JSON.parse(sessionStorage.getItem("charData")));
+      return JSON.parse(sessionStorage.getItem("charData"));
   }
   try {
     const responses = await Promise.all(
@@ -22,16 +20,8 @@ async function getCharacters(charNames) {
       }),
     );
 
-    const shuffled = shuffle(
-      characterData.map(({ id, name, title, vision }) => ({
-        id,
-        name,
-        title,
-        vision,
-      })),
-    );
-    sessionStorage.setItem("charData", JSON.stringify(shuffled));
-    return shuffled;
+    sessionStorage.setItem("charData", JSON.stringify(characterData));
+    return characterData;
   } catch (error) {
     return error;
   }

@@ -3,6 +3,7 @@ import { getCharacters, populateCharacterNames } from "./api/characters.js";
 import { CharacterCard } from "./CharacterCard.jsx";
 import { Score } from "./Score.jsx";
 import "./styles/CharacterDeck.css";
+import { shuffle } from "./utils/shuffle.js";
 
 function CharacterDeck({ aboutPageStatus }) {
   const [charNames, setCharNames] = useState([]);
@@ -18,10 +19,13 @@ function CharacterDeck({ aboutPageStatus }) {
   }, []);
 
   useEffect(() => {
-    getCharacters(charNames).then((res) => {
-      setCharDeck([...res].slice(0, 10));
-    });
-  }, [charNames]);
+    if (charDeck.length === 0) {
+      getCharacters(charNames).then((res) => {
+        const shuffled = shuffle([...res]);
+        setCharDeck([...shuffled].slice(0, 10));
+      });
+    }
+  }, [charNames, charDeck]);
 
   const characters = charDeck.map((char) => {
     return (

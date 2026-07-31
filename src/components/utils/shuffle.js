@@ -3,6 +3,7 @@ function shuffle(characterData) {
     const j = Math.floor(Math.random() * (i + 1));
     [characterData[i], characterData[j]] = [characterData[j], characterData[i]];
   }
+
   return characterData;
 }
 export { shuffle };

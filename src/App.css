@@ -90,6 +90,16 @@ select {
   --icon-md: 2rem;
 }
 
+.container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
 *.hide {
   display: none;
 }

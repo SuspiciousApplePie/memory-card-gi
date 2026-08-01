@@ -3,28 +3,25 @@ async function getCharacters(charNames) {
     if (JSON.parse(sessionStorage.getItem("charData")).length > 0)
       return JSON.parse(sessionStorage.getItem("charData"));
   }
-  try {
-    const responses = await Promise.all(
-      charNames.map((charName) =>
-        fetch(`https://genshin.jmp.blue/characters/${charName}/`),
-      ),
-    );
 
-    responses.forEach((res) => {
-      if (!res.ok) throw new Error("Failed to fetch character data");
-    });
+  const responses = await Promise.all(
+    charNames.map((charName) =>
+      fetch(`https://genshin.jmp.blue/characters/${charName}/`),
+    ),
+  );
 
-    const characterData = await Promise.all(
-      responses.map((res) => {
-        return res.json();
-      }),
-    );
+  responses.forEach((res) => {
+    if (!res.ok) throw new Error("Failed to fetch character data");
+  });
 
-    sessionStorage.setItem("charData", JSON.stringify(characterData));
-    return characterData;
-  } catch (error) {
-    return error;
-  }
+  const characterData = await Promise.all(
+    responses.map((res) => {
+      return res.json();
+    }),
+  );
+
+  sessionStorage.setItem("charData", JSON.stringify(characterData));
+  return characterData;
 }
 
 async function populateCharacterNames() {

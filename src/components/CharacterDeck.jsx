@@ -5,7 +5,13 @@ import { Score } from "./Score.jsx";
 import "./styles/CharacterDeck.css";
 import { shuffle } from "./utils/shuffle.js";
 
-function CharacterDeck({ aboutPageStatus, isLoading, setIsLoading }) {
+function CharacterDeck({
+  aboutPageStatus,
+  isLoading,
+  setIsLoading,
+  error,
+  setError,
+}) {
   const [charNames, setCharNames] = useState([]);
   const [charDeck, setCharDeck] = useState([]);
   const [score, setScore] = useState(0);
@@ -14,28 +20,39 @@ function CharacterDeck({ aboutPageStatus, isLoading, setIsLoading }) {
 
   useEffect(() => {
     let ignore = false;
-    populateCharacterNames().then((res) => {
-      if (ignore) return;
-      setCharNames([...res]);
-    });
+    populateCharacterNames()
+      .then((res) => {
+        if (ignore) return;
+        setCharNames([...res]);
+      })
+      .catch((error) => {
+        setError((prev) => ({ ...prev, errMsg: error.message }));
+        setIsLoading(false);
+      });
 
     return () => {
       ignore = true;
     };
-  }, [setIsLoading]);
+  }, [setIsLoading, setError]);
 
   useEffect(() => {
     if (charNames.length === 0) return;
     let ignore = false;
 
-    getCharacters(charNames).then((res) => {
-      if (ignore) return;
-      if (charDeck.length === 0) {
-        const shuffled = shuffle([...res]);
-        setCharDeck([...shuffled].slice(0, 10));
+    getCharacters(charNames)
+      .then((res) => {
+        if (ignore) return;
+        if (charDeck.length === 0) {
+          const shuffled = shuffle([...res]);
+          setCharDeck([...shuffled].slice(0, 10));
+        }
+      })
+      .catch((error) => {
+        setError((prev) => ({ ...prev, errMsg: error.message }));
+      })
+      .finally(() => {
         setIsLoading(false);
-      }
-    });
+      });
 
     return () => {
       ignore = true;
@@ -61,7 +78,8 @@ function CharacterDeck({ aboutPageStatus, isLoading, setIsLoading }) {
     <div
       className={
         (aboutPageStatus && "character-deck hide") ||
-        (isLoading && "character hide") ||
+        (isLoading && "character-deck hide") ||
+        (error.errMsg && "character-deck hide") ||
         (!aboutPageStatus && "character-deck")
       }
     >

@@ -5,7 +5,7 @@ import { Score } from "./Score.jsx";
 import "./styles/CharacterDeck.css";
 import { shuffle } from "./utils/shuffle.js";
 
-function CharacterDeck({ aboutPageStatus }) {
+function CharacterDeck({ aboutPageStatus, isLoading, setIsLoading }) {
   const [charNames, setCharNames] = useState([]);
   const [charDeck, setCharDeck] = useState([]);
   const [score, setScore] = useState(0);
@@ -13,10 +13,16 @@ function CharacterDeck({ aboutPageStatus }) {
   const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
+    let ignore = false;
     populateCharacterNames().then((res) => {
+      if (ignore) return;
       setCharNames([...res]);
     });
-  }, []);
+
+    return () => {
+      ignore = true;
+    };
+  }, [setIsLoading]);
 
   useEffect(() => {
     if (charNames.length === 0) return;
@@ -27,13 +33,14 @@ function CharacterDeck({ aboutPageStatus }) {
       if (charDeck.length === 0) {
         const shuffled = shuffle([...res]);
         setCharDeck([...shuffled].slice(0, 10));
+        setIsLoading(false);
       }
     });
 
     return () => {
       ignore = true;
     };
-  }, [charNames, charDeck]);
+  }, [charNames, charDeck, setIsLoading]);
 
   const characters = charDeck.map((char) => {
     return (
@@ -54,6 +61,7 @@ function CharacterDeck({ aboutPageStatus }) {
     <div
       className={
         (aboutPageStatus && "character-deck hide") ||
+        (isLoading && "character hide") ||
         (!aboutPageStatus && "character-deck")
       }
     >

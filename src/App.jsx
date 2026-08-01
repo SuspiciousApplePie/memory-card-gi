@@ -5,15 +5,18 @@ import { Footer } from "./components/Footer.jsx";
 import { useState } from "react";
 
 function App() {
-  const [aboutPageStatus, setboutPageStatus] = useState(false);
+  const [aboutPageStatus, setAboutPageStatus] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   return (
     <>
       <Header></Header>
       <Main
         aboutPageStatus={aboutPageStatus}
-        setAboutPageStatus={setboutPageStatus}
+        setAboutPageStatus={setAboutPageStatus}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
       ></Main>
-      <Footer setAboutPageStatus={setboutPageStatus}></Footer>
+      <Footer setAboutPageStatus={setAboutPageStatus}></Footer>
     </>
   );
 }

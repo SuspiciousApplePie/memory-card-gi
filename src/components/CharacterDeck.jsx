@@ -57,7 +57,7 @@ function CharacterDeck({
     return () => {
       ignore = true;
     };
-  }, [charNames, charDeck, setIsLoading]);
+  }, [charNames, charDeck, setIsLoading, setError]);
 
   const characters = charDeck.map((char) => {
     return (

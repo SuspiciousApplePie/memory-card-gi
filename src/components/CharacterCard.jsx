@@ -28,13 +28,13 @@ function CharacterCard({
     <figure className="character-card" onClick={selectChar}>
       <img
         src={`https://genshin.jmp.blue/characters/${character.id.toLowerCase()}/card`}
-        alt={name + " " + "photo"}
+        alt={character.name + " " + "photo"}
         width={250}
         height={300}
         fetchPriority="high"
         draggable="false"
       />
-      <figcaption>
+      <figcaption className={character.vision.toLowerCase()}>
         <span className="name">{character.name}</span>
         <span className="title">{character.title}</span>
       </figcaption>

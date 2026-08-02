@@ -9,7 +9,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   return (
     <>
-      <Header></Header>
+      <Header setAboutPageStatus={setAboutPageStatus}></Header>
       <Main
         aboutPageStatus={aboutPageStatus}
         setAboutPageStatus={setAboutPageStatus}

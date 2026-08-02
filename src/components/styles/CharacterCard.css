@@ -4,14 +4,17 @@
   align-items: center;
 }
 
-.character-card figcaption {
+figcaption {
   width: 250px;
+  background-color: var(--black);
+  color: var(--white);
 }
 
 .character-card figcaption span {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid currentColor;
 }
 
 figcaption .name {

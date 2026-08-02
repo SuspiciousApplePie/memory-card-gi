@@ -1,3 +1,5 @@
+import "./styles/Score.css";
+
 function Score({ score, highScore }) {
   return (
     <aside>

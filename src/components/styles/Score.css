@@ -1,0 +1,11 @@
+aside {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+aside span {
+  font-size: var(--font-xl);
+  display: flex;
+  align-items: center;
+}

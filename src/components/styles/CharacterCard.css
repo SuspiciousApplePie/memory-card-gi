@@ -13,3 +13,35 @@
   justify-content: center;
   align-items: center;
 }
+
+figcaption .name {
+  font-size: var(--font-lg);
+  font-weight: 700;
+}
+
+.anemo {
+  color: var(--anemo);
+}
+
+.geo {
+  color: var(--geo);
+}
+
+.electro {
+  color: var(--electro);
+}
+
+.dendro {
+  color: var(--dendro);
+}
+
+.hydro {
+  color: var(--hydro);
+}
+
+.pyro {
+  color: var(--pyro);
+}
+.cryo {
+  color: var(--cryo);
+}

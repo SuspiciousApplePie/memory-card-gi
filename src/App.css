@@ -99,6 +99,14 @@ select {
 
   --icon-sm: 1rem;
   --icon-md: 2rem;
+
+  --anemo: #7fdeac;
+  --geo: #e3cd65;
+  --electro: #b993e4;
+  --dendro: #b5dd47;
+  --hydro: #54b0f0;
+  --pyro: #ef7a35;
+  --cryo: #88dbdc;
 }
 
 .container {

@@ -1,3 +1,5 @@
+import "./styles/About.css";
+
 function About({ aboutPageStatus, setAboutPageStatus }) {
   return (
     <div
@@ -8,14 +10,19 @@ function About({ aboutPageStatus, setAboutPageStatus }) {
     >
       <h1>About</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
-        voluptates. Dolorum adipisci, itaque consectetur ipsum, et deserunt
-        facere illum, eveniet impedit quisquam quaerat maiores? Ullam ipsum
-        culpa aliquam id veniam. <br></br>
-        <br></br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At
-        quod saepe laboriosam? Eveniet qui, facilis quod impedit, itaque quasi
-        ipsum sapiente eius consequatur aperiam suscipit dicta consequuntur?
-        Enim, temporibus quibusdam.
+        &copy; All rights reserved by <strong>COGNOSPHERE</strong>. Other
+        properties belong to their respective owners.
+        <br />
+        <br />
+        This app is not affliated with, endorsed, or sponsored by{" "}
+        <strong>HoYoverse</strong>, <strong>COGNOSPHERE</strong>, or{" "}
+        <strong>miHoYo</strong>. Genshin Impact and all related character names,
+        art, and assets are property of <strong>COGNOSPHERE Pte. Ltd</strong>.
+        <br />
+        <br />
+        Character art and data sourced from{" "}
+        <a href="https://genshin.dev">genshin.dev</a>, an unofficial
+        fan-maintained Genshin Impact API.
       </p>
       <button onClick={() => setAboutPageStatus(false)}>Back</button>
     </div>

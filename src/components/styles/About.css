@@ -14,3 +14,18 @@
   padding: var(--space-4);
   line-height: 1;
 }
+
+.about-page button {
+  display: grid;
+  justify-self: end;
+  background-color: transparent;
+  color: var(--white);
+  text-decoration: underline;
+  font-size: calc(var(--font-xl) * 1.1);
+  border-radius: 4px;
+}
+
+.about-page button:hover {
+  background-color: var(--white);
+  color: var(--beige);
+}

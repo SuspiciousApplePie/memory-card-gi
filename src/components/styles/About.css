@@ -1,0 +1,16 @@
+.about {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4);
+  color: var(--white);
+}
+
+.about-page {
+  text-align: center;
+}
+
+.about-page p {
+  font-size: calc(var(--font-lg) * 1.1);
+  padding: var(--space-4);
+  line-height: 1;
+}

@@ -1,7 +1,7 @@
 function Header({ aboutPageStatus, setAboutPageStatus }) {
   return (
     <header>
-      <h1>Genshin Impact Memory Card Game</h1>
+      <h1>Traveler's Memoir</h1>
       <button
         className={(aboutPageStatus && "about-btn clicked") || "about-btn"}
         onClick={() => {

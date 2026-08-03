@@ -7,7 +7,6 @@
 figcaption {
   width: 250px;
   background-color: var(--black);
-  color: var(--white);
 }
 
 .character-card figcaption span {

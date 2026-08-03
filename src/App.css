@@ -134,7 +134,7 @@ header {
 
 main {
   flex: 1;
-
+  color: white;
   padding: var(--space-2) calc(var(--space-4) * 1.5);
 }
 

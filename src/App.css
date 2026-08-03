@@ -112,6 +112,10 @@ select {
   --cryo: #88dbdc;
 }
 
+body {
+  background-color: var(--beige);
+}
+
 .container {
   min-height: 100dvh;
   display: flex;
@@ -130,7 +134,7 @@ header {
 
 main {
   flex: 1;
-  background-color: var(--beige);
+
   padding: var(--space-2) calc(var(--space-4) * 1.5);
 }
 

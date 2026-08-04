@@ -4,9 +4,13 @@
   align-items: center;
   cursor: pointer;
 }
+
+.character-card:hover img,
+.character-card:hover figcaption {
+  box-shadow: 0px 0px 20px currentColor;
 }
 
-figcaption {
+.character-card figcaption {
   width: 250px;
   background-color: var(--black);
 }

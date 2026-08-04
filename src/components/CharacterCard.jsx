@@ -25,7 +25,10 @@ function CharacterCard({
     setCharDeck((charDeck) => [...shuffle([...charDeck])]);
   }
   return (
-    <figure className="character-card" onClick={selectChar}>
+    <figure
+      className={`character-card ${character.vision.toLowerCase()}`}
+      onClick={selectChar}
+    >
       <img
         src={`https://genshin.jmp.blue/characters/${character.id.toLowerCase()}/card`}
         alt={character.name + " " + "photo"}
@@ -34,7 +37,7 @@ function CharacterCard({
         fetchPriority="high"
         draggable="false"
       />
-      <figcaption className={character.vision.toLowerCase()}>
+      <figcaption>
         <span className="name">{character.name}</span>
         <span className="title">{character.title}</span>
       </figcaption>

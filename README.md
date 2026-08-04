@@ -1,16 +1,36 @@
-# React + Vite
+# Traveler's Memoir
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Traveler's Memoir** is a Genshin Impact memory game featuring characters, made as fan project.
 
-Currently, two official plugins are available:
+_Not affliated with or endorsed by HoYoverse/COGNOSPHERE._
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Choose different card and the deck gets reshuffled
+- Score tracker that resets when you click a card that is already clicked.
+- Color of character details depends on their vision.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tools
 
-## Expanding the ESLint configuration
+- HTML
+- CSS
+- JavaScript
+- React
+- Vite
+- [genshin.dev API](https://genshin.dev) - For character data
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Credits
+
+© All rights reserved by **COGNOSPHERE**. Other properties belong to their respective owners.
+
+This app is not affliated with, endorsed, or sponsored by **HoYoverse**, **COGNOSPHERE**, or miHoYo. Genshin Impact and all related character names, art, and assets are property of **COGNOSPHERE Pte. Ltd**.
+
+Character art and data sourced from **[genshin.dev](https://genshin.dev)**, an unofficial fan-maintained Genshin Impact API.
+
+Credits to [athy!!](https://www.dafont.com/athy.d10816) for the font.
+
+## How to run locally
+
+1. Clone the repository.
+2. `npm install`
+3. `npm run dev`

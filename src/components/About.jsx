@@ -23,6 +23,10 @@ function About({ aboutPageStatus, setAboutPageStatus }) {
         Character art and data sourced from{" "}
         <a href="https://genshin.dev">genshin.dev</a>, an unofficial
         fan-maintained Genshin Impact API.
+        <br />
+        <br />
+        Credits to <a href="https://www.dafont.com/athy.d10816">athy!!</a> for
+        the font.
       </p>
       <button onClick={() => setAboutPageStatus(false)}>Back</button>
     </div>

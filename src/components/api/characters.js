@@ -15,8 +15,9 @@ async function getCharacters(charNames) {
   });
 
   const characterData = await Promise.all(
-    responses.map((res) => {
-      return res.json();
+    responses.map(async (res) => {
+      const { id, name, title, vision } = await res.json();
+      return { id, name, title, vision };
     }),
   );
 

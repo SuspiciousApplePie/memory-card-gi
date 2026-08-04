@@ -44,7 +44,7 @@ function CharacterDeck({
         if (ignore) return;
         if (charDeck.length === 0) {
           const shuffled = shuffle([...res]);
-          setCharDeck([...shuffled].slice(0, 10));
+          setCharDeck([...shuffled]);
         }
       })
       .catch((error) => {

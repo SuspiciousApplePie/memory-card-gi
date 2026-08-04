@@ -1,3 +1,5 @@
+import "./styles/Messages.css";
+
 function ErrorMessage({ error }) {
   return (
     <p

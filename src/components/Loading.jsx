@@ -1,4 +1,4 @@
-import "./styles/Loading.css";
+import "./styles/Messages.css";
 
 function Loading({ isLoading, aboutPageStatus }) {
   return (

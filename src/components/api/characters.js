@@ -11,7 +11,7 @@ async function getCharacters(charNames) {
   );
 
   responses.forEach((res) => {
-    if (!res.ok) throw new Error("Failed to fetch character data");
+    if (!res.ok) throw new Error("Failed to fetch character data. :(");
   });
 
   const characterData = await Promise.all(
@@ -27,7 +27,7 @@ async function getCharacters(charNames) {
 async function populateCharacterNames() {
   const res = await fetch("https://genshin.jmp.blue/characters/");
   if (!res.ok) {
-    throw new Error("Failed to fetch character names.");
+    throw new Error("Failed to fetch character names. :(");
   }
   const charNames = await res.json();
 

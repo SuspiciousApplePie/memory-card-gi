@@ -148,6 +148,7 @@ button {
   font-size: var(--font-xl);
   color: var(--beige);
   background-color: var(--white);
+  cursor: pointer;
 }
 
 button:hover {
